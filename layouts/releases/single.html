@@ -2,6 +2,7 @@
 <main class="mu-page mu-release container-fluid td-outer" role="main">
   <div class="row justify-content-center"><article class="col-12 col-xl-10">
     <header class="mu-page-header">
+      <a class="mu-release-back" href="{{ "releases/" | relLangURL }}"><span aria-hidden="true">&larr;</span> All releases</a>
       <p class="mu-release-card__meta">{{ with .Params.release }}{{ . }} · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p class="mu-page-summary">{{ . }}</p>{{ end }}

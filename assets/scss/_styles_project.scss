@@ -10,6 +10,7 @@
 	--mu-neutral: #93969f;
 	--mu-danger: #c96036;
 	--mu-action: #4a9fc3;
+	--mu-action-hover: #3989ab;
 	--mu-success: #458136;
 	--mu-site-chrome-bg: #252a40;
 	--mu-card-bg: var(--mu-surface-300-bg, var(--mu-color-base-300, #1d2233));
@@ -91,6 +92,7 @@ h6 {
 }
 
 .mu-navbar {
+	--bs-navbar-brand-margin-end: 2.5rem;
 	min-height: 4.5rem;
 	margin: 0;
 	z-index: 32;
@@ -123,12 +125,20 @@ h6 {
 
 .mu-navbar .nav-link {
 	color: var(--mu-neutral);
+	cursor: pointer;
+	border-bottom: 2px solid transparent;
 	font-weight: 600;
+	transition: border-bottom-color 0.2s, color 150ms linear;
 }
 
 .mu-navbar .nav-link:hover,
+.mu-navbar .nav-link:focus {
+	color: var(--mu-contrast);
+}
+
 .mu-navbar .nav-link.active {
 	color: var(--mu-contrast);
+	border-bottom-color: var(--mu-accent);
 }
 
 .mu-back-link {
@@ -241,15 +251,41 @@ h6 {
 }
 
 .mu-section-heading > a,
-.mu-read-more {
+.mu-read-more,
+.mu-release-back,
+.mu-footer nav a,
+.mu-on-this-page a {
+	color: var(--mu-action);
+	cursor: pointer;
 	font-weight: 700;
 	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.mu-section-heading > a:hover,
+.mu-section-heading > a:focus,
+.mu-read-more:hover,
+.mu-read-more:focus,
+.mu-release-back:hover,
+.mu-release-back:focus,
+.mu-footer nav a:hover,
+.mu-footer nav a:focus,
+.mu-on-this-page a:hover,
+.mu-on-this-page a:focus {
+	color: var(--mu-action-hover);
 }
 
 .mu-page-header {
 	margin-bottom: 2rem;
 	padding-bottom: 1.6rem;
 	border-bottom: 1px solid var(--mu-base-400);
+}
+
+.mu-release-back {
+	display: inline-block;
+	margin-bottom: 1rem;
+	font-weight: 700;
+	text-decoration: none;
 }
 
 .mu-page-header h1 {

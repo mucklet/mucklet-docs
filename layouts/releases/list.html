@@ -2,6 +2,7 @@
 <main class="mu-page mu-release-list container-fluid td-outer" role="main">
   <div class="row justify-content-center"><div class="col-12 col-lg-9 col-xl-10">
     <header class="mu-page-header">
+	  <a class="mu-release-back" href="{{ .Site.Home.RelPermalink }}"><span aria-hidden="true">&larr;</span> Mucklet Docs</a>
       <p class="mu-eyebrow"></p>
       <h1>{{ .Title }}</h1>
       {{ with .Content }}<div class="mu-page-summary">{{ . }}</div>{{ end }}
