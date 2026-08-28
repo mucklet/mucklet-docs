@@ -1,10 +1,10 @@
-<nav class="td-navbar navbar navbar-expand-lg navbar-dark" aria-label="Primary navigation">
+<nav class="mu-navbar navbar navbar-expand-lg navbar-dark" aria-label="Primary navigation">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}" aria-label="Mucklet Docs home"><img class="mu-navbar-logo" src="{{ "mucklet-logo.svg" | relURL }}" alt="Mucklet"><span>Mucklet Docs</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mu-navbar" aria-controls="mu-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div id="mu-navbar" class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link{{ if eq .Section "releases" }} active{{ end }}" href="{{ "releases/" | relLangURL }}">Releases</a></li></ul>
-        <a class="mu-back-link" href="{{ .Site.Params.mainSiteURL }}">Back to Mucklet <span aria-hidden="true">↗</span></a>
+        <a class="mu-back-link" href="{{ .Site.Params.mainSiteURL }}">Back to Mucklet</a>
       </div>
     </div>
 </nav>
