@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main class="mu-page mu-release-list container-fluid td-outer" role="main">
+  <div class="row justify-content-center"><div class="col-12 col-lg-9 col-xl-8">
+    <header class="mu-page-header">
+      <p class="mu-eyebrow">Mucklet updates</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}<div class="mu-page-summary">{{ . }}</div>{{ end }}
+    </header>
+    <div class="mu-release-list__items">
+      {{ range .RegularPages.ByDate.Reverse }}
+      <article class="mu-release-card">
+        <p class="mu-release-card__meta">{{ with .Params.release }}{{ . }} · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        <a class="mu-read-more" href="{{ .RelPermalink }}">Read release notes <span aria-hidden="true">→</span></a>
+      </article>
+      {{ end }}
+    </div>
+  </div></div>
+</main>
+{{ end }}
