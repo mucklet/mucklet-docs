@@ -113,8 +113,7 @@ h6 {
 	text-decoration: none;
 }
 
-.mu-navbar .container-fluid,
-.mu-footer .container-fluid {
+.mu-navbar .container-fluid {
 	--bs-gutter-x: calc(var(--mu-layout-gutter) * 2);
 }
 
@@ -253,7 +252,7 @@ h6 {
 .mu-section-heading > a,
 .mu-read-more,
 .mu-release-back,
-.mu-footer nav a,
+.start--footer-section a,
 .mu-on-this-page a {
 	color: var(--mu-action);
 	cursor: pointer;
@@ -268,8 +267,8 @@ h6 {
 .mu-read-more:focus,
 .mu-release-back:hover,
 .mu-release-back:focus,
-.mu-footer nav a:hover,
-.mu-footer nav a:focus,
+.start--footer-section a:hover,
+.start--footer-section a:focus,
 .mu-on-this-page a:hover,
 .mu-on-this-page a:focus {
 	color: var(--mu-action-hover);
@@ -498,49 +497,125 @@ h6 {
 
 .mu-footer {
 	margin-top: auto;
-	padding: 2rem 0;
-	background: var(--mu-site-chrome-bg);
 	border-top: 1px solid var(--mu-base-400);
 }
 
-.mu-footer .container-fluid {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-	gap: 1rem 2rem;
-	max-width: 72rem;
+.start--footer {
+	--mu-footer-gap: 64px;
+	background: var(--mu-site-chrome-bg);
 }
 
-.mu-footer__brand {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.55rem;
+.start--footer-container {
+	width: 90%;
+	max-width: 1617px;
+	margin: 0 auto;
+	padding: 44px 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	gap: var(--mu-footer-gap);
+}
+
+.start--footer-row {
+	display: flex;
+	flex-direction: row;
+	gap: var(--mu-footer-gap);
+	flex-wrap: wrap;
+}
+
+.start--footer-logo {
+	flex: 0 0 auto;
+	line-height: 20px;
+}
+
+.start--footer-logo-img {
+	height: 42px;
+	display: inline;
+	vertical-align: middle;
+}
+
+.start--footer-logo-text {
+	margin-left: 12px;
 	color: var(--mu-contrast);
 	font-family: "Amatic SC", cursive;
-	font-size: 1.8rem;
-	font-weight: 700;
+	font-size: 32px;
+	text-transform: lowercase;
+	vertical-align: middle;
 }
 
-.mu-footer__brand img {
-	width: auto;
-	height: 1.7rem;
-}
-
-.mu-footer nav {
+.start--footer-icons {
+	margin-top: 32px;
 	display: flex;
-	flex-wrap: wrap;
-	gap: 1rem;
+	flex-direction: row;
+	gap: 10px;
 }
 
-.mu-footer a {
-	font-size: 0.9rem;
+.start--footer-icon {
+	display: block;
+	width: 32px;
+	height: 32px;
+	border-radius: 4px;
+	color: #9ea1a9;
+	font-size: 22px;
+	line-height: 20px;
+	text-align: center;
 	text-decoration: none;
+	transition: border-color 0.2s, color 0.2s, background-color 0.2s, opacity 0.4s;
 }
 
-.mu-footer p {
+.start--footer-icon:hover,
+.start--footer-icon:focus {
+	color: #a9acb3;
+	background: var(--mu-base-500);
+}
+
+.start--footer-icon > .fa {
+	line-height: 32px;
+}
+
+.start--footer-icon--discord {
+	display: flex;
+	align-items: center;
+}
+
+.start--footer-icon--discord > svg {
+	display: block;
+	width: 22px;
+	margin: auto;
+	fill: currentcolor;
+}
+
+.start--footer-sectionheader {
+	margin-top: 0;
+	margin-bottom: 12px;
+	color: var(--mu-accent);
+	font-family: "Open Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.start--footer-section ul {
 	margin: 0;
-	font-size: 0.8rem;
+	padding: 0;
+	list-style-type: none;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.start--footer-section li {
+	margin: 8px 0;
+}
+
+.start--footer-section a {
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.start--footer-disclaimer {
+	color: var(--mu-neutral);
+	font-size: 14px;
+	line-height: 20px;
 }
 
 @media (min-width: 768px) {
@@ -548,6 +623,27 @@ h6 {
 		position: fixed;
 		top: 0;
 		width: 100%;
+	}
+}
+
+@media (max-width: 1200px) {
+	.start--footer {
+		--mu-footer-gap: 4vw;
+	}
+}
+
+@media (max-width: 1024px) {
+	.start--footer-noticesheader {
+		display: none;
+	}
+
+	.start--footer-disclaimer {
+		text-align: center;
+	}
+
+	.start--footer-container {
+		flex-direction: column;
+		align-items: center;
 	}
 }
 
@@ -601,10 +697,13 @@ h6 {
 		height: 1.65rem;
 	}
 
-	.mu-section-heading,
-	.mu-footer .container-fluid {
+	.mu-section-heading {
 		flex-direction: column;
 		align-items: start;
+	}
+
+	.start--footer {
+		--mu-footer-gap: 5vw;
 	}
 
 	.mu-section-heading {
