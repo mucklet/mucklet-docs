@@ -205,6 +205,10 @@ h6 {
 	font-size: clamp(1.2rem, 7.2vw, 2.4rem);
 }
 
+.mu-section-heading .mu-eyebrow {
+	font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
 .btn-primary {
 	color: var(--mu-base-300);
 	background: var(--mu-action);
@@ -313,6 +317,12 @@ h6 {
 	// border: 1px solid var(--mu-base-400);
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
     border-radius: 16px;
+}
+
+// The card padding provides the final vertical spacing; a last child margin
+// would otherwise make the bottom appear larger than the top.
+.mu-release-card > :last-child {
+	margin-bottom: 0;
 }
 
 .mu-release-card h2,
@@ -488,7 +498,7 @@ h6 {
 }
 
 .mu-release h2 {
-	font-size: clamp(1.45rem, 2.2vw, 2rem);
+	font-size: clamp(1.55rem, 2.3vw, 2.1rem);
 	line-height: 1.25;
 }
 
