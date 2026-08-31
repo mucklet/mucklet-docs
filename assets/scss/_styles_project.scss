@@ -723,27 +723,31 @@ h6 {
 		justify-content: center;
 	}
 
-	.mu-navbar .nav-link {
-		border-bottom: 0;
-		border-left: 0;
-		position: relative;
-		transition: color 150ms linear;
+	// Extend the animated collapse box to the viewport edges. This keeps the
+	// active border within its overflow clipping area throughout the animation.
+	.mu-navbar .navbar-collapse {
+		flex-basis: calc(100% + (var(--mu-layout-gutter) * 2));
+		margin-inline: calc(var(--mu-layout-gutter) * -1);
 	}
 
-	.mu-navbar .nav-link.active::before {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: calc(var(--mu-layout-gutter) * -1);
-		width: 2px;
-		background: var(--mu-accent);
-		content: "";
+	.mu-navbar .nav-link {
+		border-bottom: 0;
+		border-left: 4px solid transparent;
+		border-top: none;
+		padding-left: calc(var(--mu-layout-gutter) - 4px);
+		transition: border-left-color 0.2s, color 150ms linear;
+	}
+
+	.mu-navbar .navbar-collapse .nav-link.active {
+		border-left-color: var(--mu-accent);
 	}
 
 	// In the collapsed menu, this is a navigation link rather than a desktop
 	// button. Match the release back-link colour and align it with nav items.
 	.mu-navbar .navbar-collapse .mu-back-link {
-		padding: 0.5rem 0;
+		display: block;
+		margin-top: 0.5rem;
+		padding: 0.5rem var(--mu-layout-gutter);
 		color: var(--mu-action);
 		background: none;
 		border-radius: 0;
