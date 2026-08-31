@@ -94,6 +94,7 @@ h6 {
 
 .mu-navbar {
 	--bs-navbar-brand-margin-end: 2.5rem;
+	--bs-navbar-toggler-focus-width: 0;
 	min-height: 4.5rem;
 	margin: 0;
 	z-index: 32;
@@ -106,7 +107,7 @@ h6 {
 	display: inline-flex;
 	align-items: center;
 	gap: 1.25rem;
-	color: var(--mu-contrast);
+	color: var(--mu-accent);
 	font-family: "Amatic SC", cursive;
 	font-size: 2.05rem;
 	font-weight: 700;
@@ -121,6 +122,26 @@ h6 {
 .mu-navbar-logo {
 	width: auto;
 	height: 2rem;
+}
+
+.mu-navbar .navbar-toggler {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	border: 0;
+	transition: background-color 0.2s;
+}
+
+.mu-navbar .navbar-toggler:hover,
+.mu-navbar .navbar-toggler:focus {
+	border: 0;
+}
+
+.mu-navbar .navbar-toggler:hover {
+	background: var(--mu-base-500);
 }
 
 .mu-navbar .nav-link {
@@ -692,6 +713,13 @@ h6 {
 }
 
 @media (max-width: 992px) {
+	// Keep the first flex row as tall as the closed navbar, so opening the
+	// collapsed second row does not move the brand or toggler upward.
+	.mu-navbar .navbar-brand,
+	.mu-navbar .navbar-toggler {
+		margin-block: 0.5rem;
+	}
+
 	.mu-navbar .nav-link {
 		border-bottom: 0;
 		border-left: 0;
