@@ -8,6 +8,7 @@
 	--mu-accent: #c1a657;
 	--mu-contrast: #fffcf2;
 	--mu-neutral: #93969f;
+	--mu-neutral-hover: #a9abb3;
 	--mu-danger: #c96036;
 	--mu-action: #4a9fc3;
 	--mu-action-hover: #3989ab;
@@ -104,7 +105,7 @@ h6 {
 .mu-navbar .navbar-brand {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.65rem;
+	gap: 1.25rem;
 	color: var(--mu-contrast);
 	font-family: "Amatic SC", cursive;
 	font-size: 2.05rem;
@@ -125,7 +126,8 @@ h6 {
 .mu-navbar .nav-link {
 	color: var(--mu-neutral);
 	cursor: pointer;
-	border-bottom: 2px solid transparent;
+	border-top: 6px solid transparent;
+	border-bottom: 4px solid transparent;
 	font-weight: 600;
 	transition: border-bottom-color 0.2s, color 150ms linear;
 }
@@ -142,17 +144,19 @@ h6 {
 
 .mu-back-link {
 	padding: 0.42rem 0.7rem;
-	color: var(--mu-contrast);
-	border: 1px solid var(--mu-base-500);
+	color: var(--mu-neutral);
+	background: none;
+	border: 0;
 	border-radius: 0.25rem;
 	font-size: 0.9rem;
 	font-weight: 700;
 	text-decoration: none;
+	transition: color 0.2s, background-color 0.2s;
 }
 
 .mu-back-link:hover {
-	color: var(--mu-accent);
-	border-color: var(--mu-accent);
+	color: var(--mu-neutral-hover);
+	background: var(--mu-base-500);
 }
 
 .mu-hero {
@@ -172,8 +176,8 @@ h6 {
 	font-family: "Amatic SC", cursive;
 	color: var(--mu-accent);
 	font-size: clamp(2rem, 18vw, 6.75rem);
-    // font-size: 108px;
-    letter-spacing: -2.16px;
+	// font-size: 108px;
+	letter-spacing: -2.16px;
 	max-width: 48rem;
 	margin: 0.3rem auto 1.4rem;
 }
