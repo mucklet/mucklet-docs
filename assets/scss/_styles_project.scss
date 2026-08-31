@@ -93,13 +93,14 @@ h6 {
 }
 
 .mu-navbar {
+	--bs-navbar-padding-y: 4px;
 	--bs-navbar-brand-margin-end: 2.5rem;
 	--bs-navbar-toggler-focus-width: 0;
-	min-height: 4.5rem;
+	min-height: 64px;
 	margin: 0;
 	z-index: 32;
 	background: var(--mu-site-chrome-bg);
-	border-bottom: 1px solid var(--mu-base-400);
+	// border-bottom: 1px solid var(--mu-base-400);
 	box-shadow: none;
 }
 
@@ -129,7 +130,36 @@ h6 {
 	height: 2.5rem;
 	padding: 0;
 	border: 0;
+	color: var(--mu-neutral);
 	transition: background-color 0.2s;
+}
+
+.mu-navbar-toggler-icon {
+	display: block;
+	width: 1.75rem;
+	height: 1.75rem;
+	fill: currentcolor;
+}
+
+.mu-navbar-toggler-icon__open,
+.mu-navbar-toggler-icon__close {
+	transition: opacity 0.3s ease-in-out;
+}
+
+.mu-navbar-toggler-icon__open {
+	opacity: 1;
+}
+
+.mu-navbar-toggler-icon__close {
+	opacity: 0;
+}
+
+.mu-navbar .navbar-toggler[aria-expanded="true"] .mu-navbar-toggler-icon__open {
+	opacity: 0;
+}
+
+.mu-navbar .navbar-toggler[aria-expanded="true"] .mu-navbar-toggler-icon__close {
+	opacity: 1;
 }
 
 .mu-navbar .navbar-toggler:hover,
@@ -721,6 +751,7 @@ h6 {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		margin-inline-end: -6px;
 	}
 
 	// Extend the animated collapse box to the viewport edges. This keeps the
@@ -780,5 +811,10 @@ h6 {
 
 	.mu-section-heading {
 		gap: 0.6rem;
+	}
+
+	.mu-navbar-toggler-icon {
+		width: 1.55rem;
+		height: 1.55rem;
 	}
 }
