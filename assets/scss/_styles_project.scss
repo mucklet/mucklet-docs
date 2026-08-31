@@ -125,9 +125,6 @@ h6 {
 }
 
 .mu-navbar .navbar-toggler {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
 	width: 2.5rem;
 	height: 2.5rem;
 	padding: 0;
@@ -718,6 +715,12 @@ h6 {
 	.mu-navbar .navbar-brand,
 	.mu-navbar .navbar-toggler {
 		margin-block: 0.5rem;
+	}
+
+	.mu-navbar .navbar-toggler {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.mu-navbar .nav-link {
