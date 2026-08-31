@@ -1,6 +1,7 @@
 ---
 title: "Release v1.73.0 – Custom theme"
 linkTitle: "v1.73.0 – Custom theme"
+slug: "v1.73.0"
 date: 2026-08-11T14:41:49+02:00
 description: "Create, save, share, and apply custom colour themes in Mucklet."
 release: "v1.73.0"
