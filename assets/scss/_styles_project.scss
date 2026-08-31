@@ -129,11 +129,12 @@ h6 {
 	border-top: 6px solid transparent;
 	border-bottom: 4px solid transparent;
 	font-weight: 600;
-	transition: border-bottom-color 0.2s, color 150ms linear;
+	transition: border-bottom-color 0.2s, color 150ms linear, background-color 150ms linear;
 }
 
 .mu-navbar .nav-link:hover,
 .mu-navbar .nav-link:focus {
+	background: var(--mu-base-500);
 	color: var(--mu-contrast);
 }
 
@@ -155,7 +156,7 @@ h6 {
 }
 
 .mu-back-link:hover {
-	color: var(--mu-neutral-hover);
+	color: var(--mu-contrast);
 	background: var(--mu-base-500);
 }
 
@@ -227,16 +228,16 @@ h6 {
 	border-color: var(--mu-action-hover);
 }
 
-.btn-outline-light {
-	color: var(--mu-contrast);
-	border-color: var(--mu-base-500);
+.mu-hero__mucklet-link {
+	color: var(--mu-neutral);
+	background: var(--mu-base-400);
+	border: 0;
 	font-weight: 700;
 }
 
-.btn-outline-light:hover {
+.mu-hero__mucklet-link:hover {
 	color: var(--mu-contrast);
-	background: var(--mu-base-400);
-	border-color: var(--mu-base-400);
+	background: var(--mu-base-500);
 }
 
 .mu-home-section,
