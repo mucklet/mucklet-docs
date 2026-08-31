@@ -736,6 +736,21 @@ h6 {
 		background: var(--mu-accent);
 		content: "";
 	}
+
+	// In the collapsed menu, this is a navigation link rather than a desktop
+	// button. Match the release back-link colour and align it with nav items.
+	.mu-navbar .navbar-collapse .mu-back-link {
+		padding: 0.5rem 0;
+		color: var(--mu-action);
+		background: none;
+		border-radius: 0;
+	}
+
+	.mu-navbar .navbar-collapse .mu-back-link:hover,
+	.mu-navbar .navbar-collapse .mu-back-link:focus {
+		color: var(--mu-action-hover);
+		background: none;
+	}
 }
 
 @media (max-width: 575.98px) {
