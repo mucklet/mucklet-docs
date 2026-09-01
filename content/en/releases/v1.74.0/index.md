@@ -3,57 +3,57 @@ title: "Release v1.74.0 – Account deletion"
 linkTitle: "v1.74.0 – Account deletion"
 slug: "v1.74.0"
 date: 2026-08-31T20:48:00+02:00
-description: "Delete your account and have all identity data scheduled for wiping."
+description: "Delete your account and schedule all identifying data for deletion."
 release: "v1.74.0"
 draft: false
 ---
 
-A feature long missing is finally added.
-Hopefully none of you will have a need for it. But if you ever do need it, for whatever reason, it should be there. And now it is!
+A long-missing feature has finally been added.
+Hopefully, none of you will ever need it. But if you do, for whatever reason, it is now available.
 
-We also have a this new page for documentation. And a client version management system that is implemented for multi-realm functionality.
+We have also launched this new documentation site, along with a client version-management system to support multi-realm functionality.
 
 ## Features
 
-### Account deletions
+### Account deletion
 
 On the [Mucklet Account - Overview](https://mucklet.com/account/#overview) page, there is now a _Delete account_ button under the _Security_ section:
 
 ![Delete Account button in Mucklet Overview.](mucklet-security-delete-account.png)
 
-Clicking it will open a dialog where you confirm with your password (or a Google confirm link):
+Clicking it opens a dialog where you confirm using your password or a Google confirmation link:
 
 ![Delete Account dialog.](delete-account-dialog.png)
 
-Access to all realms will be withdrawn as soon as the account is deleted, and all identifying data will be scheduled to be wiped after 30 days.
+Access to all realms is withdrawn as soon as the account is deleted, and all identifying data is scheduled for deletion after 30 days.
 
-If you try to log in during the 30 day period, you will be given the option to restore the account, or keep it deleted:
+If you try to log in during the 30-day period, you can either restore the account or keep it deleted:
 
 ![Account Deleted screen with restore option.](account-deleted.png)
 
-Once the deadline is passed, all identifying data will be wiped.
+Once the deadline has passed, all identifying data is deleted.
 
 ### Mucklet Docs
 
-The site you are currently at was created as part of this release.
+The site you are currently visiting was created as part of this release.
 
-It is a place for documentation related to Mucklet, such as releases, guides, API references, and scripting resources. Initially it only hosts info on releases.
+It provides Mucklet documentation, including release notes, guides, API references, and scripting resources. At launch, it contains only release notes.
 
-Welcome here!
+Welcome to Mucklet Docs!
 
 ## Improvements
 
-### Scss class cleanup
-Many scss files defined classes that were not used in the components. All those classes has now been removed.
+### SCSS class cleanup
+
+Several SCSS files defined classes that were not used by any components. Those unused classes have now been removed.
 
 ## Fixes
 
-### Failed clearCacheAndReload causes error
+### clearCacheAndReload errors were not handled
 
-If an error occurred during a client update (clear cache and reload), the error was not properly handled. This has been fixed.
-[GitHub issue #514 - Failed clearCacheAndReload causews error](https://github.com/mucklet/mucklet-client/issues/514)
+If a client update failed while clearing the cache and reloading, the error was not handled correctly. This has been fixed.
+[GitHub issue #514 – Failed clearCacheAndReload causes error](https://github.com/mucklet/mucklet-client/issues/514)
 
-### Google account select not showing
-After logging out from an account connected to Google, and then trying to Sign in with Google again, you were not presented with a Google account select screen. Instead you were directly redirected back to Mucklet, logged in. This has been fixed, and a Google account selection screen is now showing.
+### Google account selection was not shown
 
-Instead, we always want a user to be able to select Google account after clicking Sign in with Google.
+After signing out of an account linked to Google, choosing Sign in with Google again returned you directly to Mucklet without displaying the Google account-selection screen. This has been fixed; the account-selection screen is now displayed.
