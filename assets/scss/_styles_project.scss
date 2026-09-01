@@ -359,6 +359,20 @@ h6 {
 	margin-bottom: 0;
 }
 
+// Keep release-list and single-release pages in the same readable column.
+// Bootstrap's column gutter leaves the content area at about 48.5rem.
+.mu-release__article,
+.mu-release-list__column {
+	max-width: 50rem;
+}
+
+// Docsy normally caps individual content blocks at 80% of their parent.
+// Release pages use the reading column above instead, so normal blocks share
+// the same left and right edges as the release header and table of contents.
+.mu-release .td-content > * {
+	max-width: 100%;
+}
+
 .mu-release-list__items {
 	display: grid;
 	gap: 1.25rem;
