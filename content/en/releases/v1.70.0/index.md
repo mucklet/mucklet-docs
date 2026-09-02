@@ -43,8 +43,7 @@ The _Realm settings_ page for realm owners now has a _Restart_ button:
 
 ![Realm restart button.](realm-restart.png)
 
-In case the realm acts up, owners may restart the realm without having to contact us.  
-(Wolfery unfortunately does not have this enabled yet as it is manually controlled.)
+In case the realm acts up, owners may restart the realm without having to contact us.
 
 ### Character count
 
