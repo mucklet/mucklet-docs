@@ -1,0 +1,17 @@
+{{- $url := .Get "url" -}}
+{{- $title := .Get "title" -}}
+{{- if not $url -}}
+	{{- errorf "The %q shortcode requires a url parameter: %s" .Name .Position -}}
+{{- end -}}
+{{- if not $title -}}
+	{{- errorf "The %q shortcode requires a title parameter: %s" .Name .Position -}}
+{{- end -}}
+<a class="mu-link-preview" href="{{ $url }}" aria-label="Visit {{ $title }}" title="Visit {{ $title }}">
+	<span class="mu-link-preview__content">
+		<span class="mu-link-preview__heading">
+			{{- with .Get "icon" }}<img class="mu-link-preview__icon" src="{{ . }}" alt="" aria-hidden="true">{{ end -}}
+			<span class="mu-link-preview__title">{{ $title }}</span>
+		</span>
+		{{- with .Get "description" }}<span class="mu-link-preview__description">{{ . }}</span>{{ end -}}
+	</span>
+</a>

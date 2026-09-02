@@ -29,8 +29,9 @@ The custom-theme view lists every available colour token. Select a token to set 
 Use the buttons at the bottom of the editor to save a theme locally, export it to a file, or import a previously exported file. Exporting makes it easy to share a theme or move it between browsers and devices.
 
 ### Realm themes
+{{< availability roles="Realm owners" >}}
 
-Realm owners can apply an exported custom theme as their realm’s default theme:
+Realm owners can apply an exported custom theme as their realm's default theme:
 
 1. Open **Mucklet Account – Realms**.
 2. In the **Colour theme** section, choose **Import theme**.

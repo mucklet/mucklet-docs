@@ -94,7 +94,7 @@ The service handling images may now generate _.ico_ file thumbnails.
 
 ### Setting profile image could deadlock character
 
-When uploading a profile image, it was possible that the character became “deadlocked”, not responding to any action. This would then spread to others who interacted with the deadlocked character. This has been fixed, as well as a similar issue for room profile images.
+When uploading a profile image, it was possible that the character became "deadlocked", not responding to any action. This would then spread to others who interacted with the deadlocked character. This has been fixed, as well as a similar issue for room profile images.
 
 ### Mucklet.com account button on mobile
 

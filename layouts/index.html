@@ -12,7 +12,7 @@
 </section>
 <section class="mu-home-section" aria-labelledby="latest-release-heading">
   <div class="mu-section-heading">
-    <div><p class="mu-eyebrow">What’s new</p><h2 id="latest-release-heading">Latest release</h2></div>
+    <div><p class="mu-eyebrow">What's new</p><h2 id="latest-release-heading">Latest release</h2></div>
     <a href="{{ "releases/" | relLangURL }}">All releases <span aria-hidden="true">→</span></a>
   </div>
   {{ range first 1 (where .Site.RegularPages "Section" "releases").ByDate.Reverse }}
