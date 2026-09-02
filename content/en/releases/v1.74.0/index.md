@@ -11,7 +11,7 @@ draft: false
 A long-missing feature has finally been added.
 Hopefully, none of you will ever need it. But if you do, for whatever reason, it is now available.
 
-We have also launched this new documentation site, along with a client version-management system to support multi-realm functionality.
+We have also launched this new documentation site, and took a step closer towards completing the multi-realm functionality by adding a client release management system.
 
 ## Features
 
@@ -31,15 +31,27 @@ If you try to log in during the 30-day period, you can either restore the accoun
 
 ![Account Deleted screen with restore option.](account-deleted.png)
 
-Once the deadline has passed, all identifying data is deleted.
+Once the deadline has passed, all identifying data is deleted, and the account may no longer be restored.
+
+{{< github-issue repo="mucklet/mucklet-client" issue="521" >}}
 
 ### Mucklet Docs
 
 The site you are currently visiting was created as part of this release.
 
-It provides Mucklet documentation, including release notes, guides, API references, and scripting resources. At launch, it contains only release notes.
+Its purpose is to host Mucklet documentation, such as release notes, guides, API references, and scripting resources. At launch, it contains only release notes.
 
 Welcome to Mucklet Docs!
+
+### Client release management
+{{< availability roles="Mucklet overseers" >}}
+
+A new management system for client releases enables realms to upgrade the client
+to new versions without manual server deployment.
+
+![Client release settings screen.](client-release.png)
+
+{{< github-issue repo="mucklet/mucklet-client" issue="517" >}}
 
 ## Improvements
 
@@ -47,12 +59,15 @@ Welcome to Mucklet Docs!
 
 Several SCSS files defined classes that were not used by any components. Those unused classes have now been removed.
 
+{{< github-issue repo="mucklet/mucklet-client" issue="523" >}}
+
 ## Fixes
 
 ### clearCacheAndReload errors were not handled
 
 If a client update failed while clearing the cache and reloading, the error was not handled correctly. This has been fixed.
-[GitHub issue #514 – Failed clearCacheAndReload causes error](https://github.com/mucklet/mucklet-client/issues/514)
+
+{{< github-issue repo="mucklet/mucklet-client" issue="514" >}}
 
 ### Google account selection was not shown
 

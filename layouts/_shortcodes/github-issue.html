@@ -1,0 +1,15 @@
+{{- $repo := .Get "repo" -}}
+{{- $issue := .Get "issue" -}}
+{{- if not $repo -}}
+	{{- errorf "The %q shortcode requires a repo parameter: %s" .Name .Position -}}
+{{- end -}}
+{{- if not $issue -}}
+	{{- errorf "The %q shortcode requires an issue parameter: %s" .Name .Position -}}
+{{- end -}}
+{{- if not (findRE "^[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*$" $repo) -}}
+	{{- errorf "The %q shortcode repo parameter must use owner/repository form: %s" .Name .Position -}}
+{{- end -}}
+{{- if not (findRE "^[1-9][0-9]*$" $issue) -}}
+	{{- errorf "The %q shortcode issue parameter must be a positive issue number: %s" .Name .Position -}}
+{{- end -}}
+<span class="mu-github-issue-container"><a class="mu-github-issue" href="https://github.com/{{ $repo }}/issues/{{ $issue }}" aria-label="View GitHub issue #{{ $issue }} in {{ $repo }}" title="GitHub issue #{{ $issue }} in {{ $repo }}"><i class="fa fa-github" aria-hidden="true"></i><span>#{{ $issue }}</span></a></span>
