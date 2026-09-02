@@ -207,6 +207,11 @@ h6 {
 	background: var(--mu-base-500);
 }
 
+.mu-home {
+	min-height: 100vh;
+	min-height: 100dvh;
+}
+
 .mu-hero {
 	background: linear-gradient(135deg, var(--mu-base-100), var(--mu-base-300));
 	border-bottom: 1px solid var(--mu-base-400);
@@ -526,21 +531,17 @@ h6 {
 	outline-offset: 3px;
 }
 
-.td-content .mu-link-preview__icon {
-	display: block;
+.mu-link-preview__icon {
 	flex: 0 0 auto;
 	width: 2rem;
 	height: 2rem;
-	max-width: none;
-	margin: 0;
-	background: none;
-	border: 0;
-	border-radius: 0;
 	object-fit: contain;
 }
 
 .mu-link-preview__content {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
 }
 
 .mu-link-preview__heading {
@@ -556,8 +557,6 @@ h6 {
 }
 
 .mu-link-preview__description {
-	display: block;
-	margin-top: 0.2rem;
 	line-height: 1.45;
 }
 
