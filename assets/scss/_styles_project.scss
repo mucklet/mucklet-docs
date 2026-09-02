@@ -525,6 +525,22 @@ h6 {
 	text-decoration: none;
 }
 
+.td-content .alert-note {
+	color: var(--mu-neutral);
+	background: var(--mu-card-bg);
+	border-left: 3px solid var(--mu-accent);
+}
+
+.mu-release .td-content .alert-note .td-alert-heading {
+	margin: 0 0 0.75rem;
+	color: var(--mu-accent);
+	font-family: "Amatic SC", cursive;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 0.015em;
+	line-height: 1.04;
+}
+
 .td-content {
 	color: var(--mu-neutral);
 	font-size: 1.05rem;
