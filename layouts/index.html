@@ -1,27 +1,29 @@
 {{ define "main" }}
+<div class="mu-home">
 <section class="mu-hero">
   <div class="mu-hero__content">
-    <p class="mu-eyebrow">Mucklet knowledge base</p>
-    <h1>Everything you need to explore Mucklet.</h1>
-    <p class="mu-hero__lead">Follow releases today, with guides and scripting resources joining the library as they are published.</p>
+    <p class="mu-eyebrow">Explore</p>
+    <h1>Documentation</h1>
+    <p class="mu-hero__lead">Where you find info on new releases, and later will get help from guides, API references, and scripting resources.</p>
     <div class="mu-hero__actions">
       <a class="btn btn-primary btn-lg" href="{{ "releases/" | relLangURL }}">View releases</a>
-      <a class="btn btn-outline-light btn-lg" href="{{ .Site.Params.mainSiteURL }}">Go to Mucklet</a>
+      <a class="btn mu-hero__mucklet-link btn-lg" href="{{ .Site.Params.mainSiteURL }}">Go to Mucklet</a>
     </div>
   </div>
 </section>
 <section class="mu-home-section" aria-labelledby="latest-release-heading">
   <div class="mu-section-heading">
-    <div><p class="mu-eyebrow">What’s new</p><h2 id="latest-release-heading">Latest release</h2></div>
+    <div><p class="mu-eyebrow">What's new</p><h2 id="latest-release-heading">Latest release</h2></div>
     <a href="{{ "releases/" | relLangURL }}">All releases <span aria-hidden="true">→</span></a>
   </div>
   {{ range first 1 (where .Site.RegularPages "Section" "releases").ByDate.Reverse }}
-  <article class="mu-release-card">
-    <p class="mu-release-card__meta">{{ with .Params.release }}{{ . }} · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
-    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-    <p>{{ .Description }}</p>
-    <a class="mu-read-more" href="{{ .RelPermalink }}">Read release notes <span aria-hidden="true">→</span></a>
+  <article class="mu-release-card mu-release-card--link">
+    <a class="mu-release-card__link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}"></a>
+    <p class="mu-release-card__meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
+    <h3>{{ .Title }}</h3>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
   </article>
   {{ end }}
 </section>
+</div>
 {{ end }}

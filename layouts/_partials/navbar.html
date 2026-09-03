@@ -1,10 +1,22 @@
-<nav class="td-navbar navbar navbar-expand-lg navbar-dark" aria-label="Primary navigation">
+<nav class="mu-navbar navbar navbar-expand-lg navbar-dark" aria-label="Primary navigation">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}" aria-label="Mucklet Docs home"><img class="mu-navbar-logo" src="{{ "mucklet-logo.svg" | relURL }}" alt="Mucklet"><span>Mucklet Docs</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mu-navbar" aria-controls="mu-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mu-navbar" aria-controls="mu-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <svg class="mu-navbar-toggler-icon" aria-hidden="true" focusable="false" viewBox="0 0 100 100">
+          <g class="mu-navbar-toggler-icon__open">
+            <path d="M5 13h90v14H5z"></path>
+            <path d="M5 43h90v14H5z"></path>
+            <path d="M5 73h90v14H5z"></path>
+          </g>
+          <g class="mu-navbar-toggler-icon__close" transform="rotate(45,50,50)">
+            <path d="M43 5h14v90H43z"></path>
+            <path d="M5 43h90v14H5z"></path>
+          </g>
+        </svg>
+      </button>
       <div id="mu-navbar" class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link{{ if eq .Section "releases" }} active{{ end }}" href="{{ "releases/" | relLangURL }}">Releases</a></li></ul>
-        <a class="mu-back-link" href="{{ .Site.Params.mainSiteURL }}">Back to Mucklet <span aria-hidden="true">↗</span></a>
+        <a class="mu-back-link" href="{{ .Site.Params.mainSiteURL }}">Go to Mucklet</a>
       </div>
     </div>
 </nav>
