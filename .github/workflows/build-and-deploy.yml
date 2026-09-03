@@ -41,7 +41,13 @@ jobs:
 
   deploy:
     needs: build
-    if: github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    environment:
+      name: production-docs
+      url: https://docs.mucklet.com
+    concurrency:
+      group: production-docs
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -73,13 +79,23 @@ jobs:
           printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Install SFTP deployment client
+        if: steps.deploy-config.outputs.configured == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends lftp
       - name: Publish static files
         if: steps.deploy-config.outputs.configured == 'true'
         env:
           HOST: ${{ secrets.DOCS_DEPLOY_HOST }}
           USER: ${{ secrets.DOCS_DEPLOY_USER }}
-          RELEASE: ${{ github.sha }}
         run: |
-          ssh "$USER@$HOST" "mkdir -p /srv/auth/docs/releases/$RELEASE"
-          rsync --archive --delete public/ "$USER@$HOST:/srv/auth/docs/releases/$RELEASE/"
-          ssh "$USER@$HOST" "ln -sfn /srv/auth/docs/releases/$RELEASE /srv/auth/docs/current"
+          lftp <<EOF
+          set cmd:fail-exit yes
+          set net:max-retries 2
+          set sftp:auto-confirm no
+          set sftp:connect-program "ssh -F /dev/null -a -x -i ${HOME}/.ssh/id_ed25519 -o IdentitiesOnly=yes -o BatchMode=yes -o PasswordAuthentication=no -o PreferredAuthentications=publickey -o StrictHostKeyChecking=yes -o UserKnownHostsFile=${HOME}/.ssh/known_hosts -o GlobalKnownHostsFile=/dev/null"
+          open -u "$USER" "sftp://$HOST"
+          mirror --reverse --delete --verbose public/ /current/
+          bye
+          EOF
